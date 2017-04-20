@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Odkaz na github: https://github.com/Ladison/config/ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pastorek_vladimir.xsd">
+
+    <!-- Základní nastavení aplikace -->
+    <general appVersion="1.02">
+        <language>cs</language>
+        <device>pc</device>
+        <templateColor type="text">blue</templateColor>
+        <appStart>1</appStart>
+        <autoSave enabled="true">
+            <time t-unit="seconds">600</time>
+            <overwrite>true</overwrite>
+        </autoSave>
+        <units>
+            <workspace>cm</workspace>
+            <text>px</text>
+            <stroke>mm</stroke>
+        </units>
+        <enablePlugins>true</enablePlugins>
+        <confirmSavings>true</confirmSavings>
+        <showTooltips>true</showTooltips>
+        <fontSizeUI>small</fontSizeUI>
+        <cursor>default</cursor>
+        <documentsTabs maxtabs="10">true</documentsTabs>
+        <shiftSwitch>true</shiftSwitch>
+        <showHiddenPanel>false</showHiddenPanel>
+        <defaultExtension>psd</defaultExtension>
+        <enableSounds value="30">true</enableSounds>
+    </general>
+
+    <performance>
+        <usingGPU>true</usingGPU>
+        <windowed>true</windowed>
+        <brightness>33</brightness>
+        <resizable>true</resizable>
+        <animatedZoom>true</animatedZoom>
+        <enableHistory maxhistory="20">true</enableHistory>
+        <swapDisc>:C\</swapDisc>
+        <maxRAM b-unit="MB">2048</maxRAM>
+    </performance>
+
+    <plugins>
+        <loadPluginsPanel>true</loadPluginsPanel>
+        <listPlugins>
+            <plugin name="Loco Plugin" enabled="true">
+                <location>loco_plugin</location>
+                <lang>cs</lang>
+                <accessInternet>false</accessInternet>
+            </plugin>
+            <plugin name="SmartSaver" enabled="false">
+                <location>smartsaver</location>
+                <lang>en</lang>
+                <accessInternet>true</accessInternet>
+            </plugin>
+            <plugin name="BoostMaster" enabled="true">
+                <location>boost</location>
+                <lang>en</lang>
+                <accessInternet>false</accessInternet>
+            </plugin>
+        </listPlugins>    
+    </plugins>
+
+    <tools>
+        <rule enabled="true">
+            <catch>true</catch>
+            <lineType>solid</lineType>
+            <color type="rgb">255.240.0</color>
+        </rule>
+        <grid enabled="true">
+            <catch>false</catch>
+            <lineType>dotted</lineType>
+            <color type="hex">0000ff</color>
+            <gridSize w-unit="px">50</gridSize>
+            <gridZoom>false</gridZoom>
+        </grid>
+    </tools>
+
+    <shortcutList>
+        <command id="1" name="Barvy">
+            <shortcut>Ctrl+Shift+B</shortcut>
+        </command>
+        <command id="2" name="Úrovně">
+            <shortcut>Ctrl+Shift+U</shortcut>
+        </command>
+        <command id="3" name="Křivky">
+            <shortcut>Ctrl+Shift+K</shortcut>
+        </command>
+        <command id="4" name="Jas a kontrast">
+            <shortcut>Ctrl+Shift+J</shortcut>
+        </command>
+        <command id="5" name="Odstín a sytost">
+            <shortcut>Ctrl+Shift+O</shortcut>
+        </command>
+        <command id="6" name="Vyvážení barev">
+            <shortcut>Ctrl+Shift+V</shortcut>
+        </command>
+        <command id="7" name="Černá a bílá">
+            <shortcut>Ctrl+Shift+C</shortcut>
+        </command>
+        <command id="8" name="Invertovat">
+            <shortcut>Ctrl+Shift+I</shortcut>
+        </command>
+        <command id="9" name="Expozice">
+            <shortcut>Ctrl+Shift+E</shortcut>
+        </command>
+        <command id="10" name="Filtry">
+            <shortcut>Ctrl+Shift+F</shortcut>
+        </command>
+    </shortcutList>
+
+</config>

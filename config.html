@@ -1,0 +1,419 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="Author" content="Vladimír Pastorek">
+    <title>Dokumentace</title>     
+  </head>
+  <body>
+    <h1>Dokumentace</h1>
+    <nav>
+      <h2>Navigace:</h2>
+      <ul>
+        <li><a href="#uvod">Úvod</a></li>
+        <li><a href="#metodika">Metodika - Použité nástroje</a></li>
+        <li><a href="#popis">Popis elementů a atributů</a></li>
+        <li><a href="#transformace">Popis transformace</a></li>
+        <li><a href="#zaver">Závěr</a></li>
+      </ul>
+      <hr />
+      <hr />
+    </nav>
+    <main>
+      <section id="uvod">
+        <article>
+          <header>
+            <h2>Úvod</h2>
+          </header>          
+          <p>
+              Tématem semestrálního projektu je fiktivní grafický editor. Práce obsahuje konfiguraci/nastavení dané aplikace. Téma mi přišlo zajímavé a vhodné, protože často pracuji s grafickými programy, které si také konfiguruje a nastavuji dle své potřeby.
+          </p>
+          <p>XML soubor slouží k obecné konfiguraci nastavení, které bude editor mít a nabízet uživateli pracující s programem.</p> 
+          <p><strong>GitHub: </strong><a href="https://github.com/Ladison/config/">odkaz</a></p>
+        </article>
+      </section>
+      <section id="metodika">
+        <article>
+          <header>
+            <h2>Metodika</h2>
+          </header>
+          <h3>Použitý Software</h3>
+          <ul>
+              <li><a href="https://www.sublimetext.com/">Sublime text 2</a> - můj oblíbený editor, ve kterém jsem tvořil XML dokument</li>
+              <li><a href="https://netbeans.org/">NetBeans IDE 8.2</a> - editor, kde jsem tvořil XSD schéma a XSL transformaci a následně mohl provádět kontrolování a validaci</li>
+              <li><a href="https://www.google.com/chrome/">Google Chrome</a> - prohlížeč, kde jsem kontrolovat HTML soubor a výstupy z transformace</li>  
+          </ul>
+          <h3>Centrum informací</h3>
+          <p>
+            Informace jsem čerpal z přednášek a cvičení, následně mi velice pomohla webová stránka  <a href="https://www.w3schools.com/">W3Schools</a>, kde jsou vysvětleny všechny potřebné věci pro správnou a validní tvorbu <strong>XML</strong> dokumentu, <strong>XSD</strong> schématu či <strong>XSL</strong>, i s praktickými ukázkamy.
+          </p>      
+        </article>
+      </section>
+      <section id="popis">
+        <article>
+          <header>
+            <h2>Popis elementů a atributů</h2>
+          </header>
+          <h3>Použité elementy</h3>
+          <table id="elementy" border="1">
+            <tr>
+              <th>Název elementu</th>
+              <th>Popis elementu</th>
+              <th>Omezení</th>
+            </tr>
+            <tr>                       
+              <td>config</td>
+              <td>obal configu nastavení</td>
+              <td>-</td>
+            </tr>
+            <tr>                       
+              <td>general</td>
+              <td>obal základního nastavení</td>
+              <td>-</td>
+            </tr>
+            <tr>                       
+              <td>language</td>
+              <td>jazyk aplikace</td>
+              <td>2x malé písmena</td>
+            </tr> 
+            <tr>                       
+              <td>device</td>
+              <td>pro které zařízení je XML platné</td>
+              <td>pc | mac | tablet</td>
+            </tr>
+            <tr>                       
+              <td>templateColor</td>
+              <td>barevné provedné aplikace</td>
+              <td>RGB | HEX | text</td>
+            </tr>
+            <tr>                       
+              <td>appStart</td>
+              <td>možnost typu startu aplikace</td>
+              <td>integer</td>
+            </tr>
+            <tr>                       
+              <td>autoSave</td>
+              <td>obal nastavení automatického uložení</td>
+              <td>-</td>
+            </tr>
+            <tr>                       
+              <td>autoSave/time</td>
+              <td>hodnota času automatického uložení</td>
+              <td>integer</td>
+            </tr>
+            <tr>                       
+              <td>autoSave/overwrite</td>
+              <td>přepisování souborů automatického uložení</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>units</td>
+              <td>obal nastavení jednotek</td>
+              <td>-</td>
+            </tr> 
+            <tr>                       
+              <td>units/workspace</td>
+              <td>jednotky při práci v prostředí</td>
+              <td>px | cm | mm</td>
+            </tr>
+            <tr>                       
+              <td>units/text</td>
+              <td>jednotky při práci s textem</td>
+              <td>px | cm | mm</td>
+            </tr>
+            <tr>                       
+              <td>units/stroke</td>
+              <td>jednotky při práci s čárami</td>
+              <td>px | cm | mm</td>
+            </tr>
+            <tr>                       
+              <td>enablePlugins</td>
+              <td>povolení pluginů</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>confirmSavings</td>
+              <td>dotaz před uložením</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>showTooltips</td> 
+              <td>Zobrazování nápověd</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>fontSizeUI</td>
+              <td>velikost písma v prostředí</td>
+              <td>small | medium | big</td>
+            </tr>
+            <tr>                       
+              <td>cursor</td>
+              <td>kurzor v aplikaci</td>
+              <td>žádné</td>
+            </tr>
+            <tr>                       
+              <td>documentsTabs</td>
+              <td>Zobrazení otevřených dokumentů v záložkách</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>shiftSwitch</td>
+              <td>přepínání nástrojů pomocí klávesy shift</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>showHiddenPanel</td>
+              <td>zobrazení skrytého panelu</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>defaultExtension</td>
+              <td>defaultní koncovka při ukládání</td>
+              <td>3x malé či velké písmeno</td>
+            </tr>
+            <tr>                       
+              <td>enbleSounds</td>
+              <td>povolení zvuků</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>performance</td>
+              <td>nastavení výkonu</td>
+              <td>-</td>
+            </tr>
+            <tr>                       
+              <td>performance/usingGPU</td>
+              <td>použití grafického procesoru při výpočtech</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>performance/windowed</td>
+              <td>zobrazení v okně</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>performance/brightness</td>
+              <td>jas</td>
+              <td>10 - 100</td>
+            </tr>
+            <tr>                       
+              <td>performance/resizable</td>
+              <td>možnost zmenšení okna</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>performance/animatedZoom</td>
+              <td>animované přiblížení</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>performance/enableHistory</td>
+              <td>Povolení historie</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>performance/swapDisc</td>
+              <td>výběr ukládacího prostoru při swapování</td>
+              <td>žádné</td>
+            </tr>
+            <tr>                       
+              <td>performance/maxRAM</td>
+              <td>maximální využití paměti RAM</td>
+              <td>integer</td>
+            </tr>
+            <tr>                       
+              <td>plugins</td>
+              <td>nastavení pluginů</td>
+              <td>-</td>
+            </tr>
+            <tr>                       
+              <td>plugins/loadPluginsPanel</td>
+              <td>načtení panelu s pluginy</td>
+              <td>true | false</td>
+            </tr>
+            <tr>                       
+              <td>plugins/listPlugins</td>
+              <td>výpis pluginů</td>
+              <td>-</td>
+            </tr>
+            <tr>                       
+              <td>plugins/plugin</td>
+              <td>daný plugin</td>
+              <td>-</td>
+            </tr>
+            <tr>                       
+              <td>plugins/plugin/location</td>
+              <td>název adresy umístění pluginu</td>
+              <td>žádné</td>
+            </tr>  
+            <tr>                       
+              <td>plugins/plugin/lang</td>
+              <td>jazyk pluginu</td>
+              <td>2x malé písmeno</td>
+            </tr> 
+            <tr>                                  
+              <td>plugins/plugin/accessInternet</td>
+              <td>povolení pluginům přístup na internet</td>
+              <td>true | false</td>
+            </tr>   
+            <tr>                                  
+              <td>tools</td>
+              <td>nastavení nástrojů</td>
+              <td>-</td>
+            </tr> 
+            <tr>                                  
+              <td>tools/rule</td>
+              <td>nástroj pravítko</td>
+              <td>-</td>
+            </tr>      
+            <tr>                                  
+              <td>tools/rule/catch</td>
+              <td>povolení uchycování objektů k pravítku</td>
+              <td>true | false</td>
+            </tr>     
+            <tr>                                  
+              <td>tools/rule/lineType</td>
+              <td>typ čáry u pravítka</td>
+              <td>solid | dotted | dashed | hidden | double | inset | outset | none</td>
+            </tr>      
+            <tr>                                  
+              <td>tools/rule/color</td>
+              <td>barva pravítka</td>
+              <td>žádné</td>
+            </tr> 
+            <tr>                                  
+              <td>tools/grid</td>
+              <td>nástroj mřížka</td>
+              <td>-</td>
+            </tr>      
+            <tr>                                  
+              <td>tools/grid/catch</td>
+              <td>povolení uchycování objektů k mřížce</td>
+              <td>true | false</td>
+            </tr>     
+            <tr>                                  
+              <td>tools/grid/lineType</td>
+              <td>typ čáry u mřížky</td>
+              <td>solid | dotted | dashed | hidden | double | inset | outset | none</td>
+            </tr>      
+            <tr>                                  
+              <td>tools/grid/color</td>
+              <td>barva mřížky</td>
+              <td>žádné</td>
+            </tr> 
+            <tr>                                  
+              <td>tools/grid/gridZoom</td>
+              <td>při přiblížení přiblížit i mřížku</td>
+              <td>true | false</td>
+            </tr> 
+            <tr>                                  
+              <td>tools/grid/gridSize</td>
+              <td>velikost mřížky</td>
+              <td>px | mm | cm</td>
+            </tr> 
+            <tr>                                  
+              <td>shortcutList</td>
+              <td>list seznamu zkratek</td>
+              <td>-</td>
+            </tr>     
+            <tr>                                  
+              <td>shortcutList/command</td>
+              <td>daná příkaz zkratky</td>
+              <td>-</td>
+            </tr> 
+            <tr>                                  
+              <td>shortcutList/command/shortcut</td>
+              <td>klávesová zkratka</td>
+              <td>žádné</td>
+            </tr>                  
+          </table>
+          <h3>Použité atributy</h3>
+          <table border="1" id="atributy" title="Tabulka atributů">
+            <tr>
+              <th>Název atributu</th>
+              <th>Popis atributu</th>
+              <th>Omezení</th>
+            </tr>
+            <tr>                       
+              <td>appVersion</td>
+              <td>značí verzi dané aplikace pro kterou je XML určené</td>
+              <td>float hodnota</td>
+            </tr>
+            <tr>                       
+              <td>type</td>
+              <td>označení především u color elementů</td>
+              <td>HEX, RGB, či označení slovy</td>
+            </tr>
+            <tr>                       
+              <td>t-unit</td>
+              <td>označuje o jaké časové jednotky se jedná</td>
+              <td>sekundy | minuty</td>
+            </tr>    
+            <tr>                       
+              <td>b-unit</td>
+              <td>označuje o jaké bitové jednotky se jedná</td>
+              <td>B | kB | MB | GB</td>
+            </tr>  
+            <tr>                       
+              <td>w-unit</td>
+              <td>označuje o jaké délkové bitové jednotky se jedná</td>
+              <td>px | mm | cm</td>
+            </tr> 
+            <tr>                       
+              <td>name</td>
+              <td>název daného elementu - používané u názvu pluginů, či zkratek klávesnic</td>
+              <td>žádné</td>
+            </tr>    
+            <tr>                       
+              <td>enabled</td>
+              <td>značí zda je zapnuto/vypnuto</td>
+              <td>true | false</td>
+            </tr>  
+            <tr>                       
+              <td>id</td>
+              <td>označuje ID elementu (u zkratek klávesnic)</td>
+              <td>integer</td>
+            </tr> 
+            <tr>                       
+              <td>value</td>
+              <td>označuje hodnotu daného elementu (např. u hodnoty hlasitosti zvuku)</td>
+              <td>0 - 100</td>
+            </tr>       
+            <tr>                       
+              <td>maxtabs</td>
+              <td>označuje maximální hodnotu počtu otevřených záložek (dokumentů)</td>
+              <td>integer</td>
+            </tr>  
+            <tr>                       
+              <td>maxhistory</td>
+              <td>označuje maximální hodnotu počtu vrázení se zpět v historii</td>
+              <td>integer</td>
+            </tr>          
+          </table>
+        </article>
+      </section>
+      <section id="transformace">
+        <article>
+          <header>
+            <h2>Popis transformace</h2>
+          </header>
+          <p>Transformace převede konfiguraci nastavení do <strong>HTML</strong> s příslušným formátováním - do tabulek, sloužící jako přehledný výpis nastavení.</p>
+          <p>U elementů s hodnotou true/false se při výpisu z tranformace hodnoty značí jako ON/OFF. U pluginů, či zkratek klávesnic se vypisují údaje přes cykly a obsahují v sobě taktéž další podmínky, které zobrazí pouze aktivní prvky v nastavení.</p>
+        </article>
+      </section>
+      <section id="zaver">
+        <article>
+          <header>
+            <h2>Závěr</h2>
+          </header>
+          <p>
+              S XML jsem se v minulosti lehce setkal, avšak poprvé jsem si vyzkoušel vytvořit schéma a dané XML poté transformovat do nějakého výstupu. Pomohly mi také mé pokročilé znalosti z HTML. Nové znalosti ze značkovacích jazyků - konkrétně XML v budoucnu určitě využiji v praxi, například při tvorbě aplikace.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>
+    <p><strong>Autor:</strong> Vladimír Pastorek | ČZU</p>
+    </footer>
+  </body>
+</html>

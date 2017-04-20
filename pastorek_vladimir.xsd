@@ -1,0 +1,288 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="config">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="general">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="lang" name="language"/>
+              <xs:element type="dev" name="device"/>
+              <xs:element name="templateColor">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="coltype" name="type"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="onoff" name="appStart"/>
+              <xs:element name="autoSave">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="time">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:integer">
+                            <xs:attribute type="t-uni" name="t-unit"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="bool" name="overwrite"/>
+                  </xs:sequence>
+                  <xs:attribute type="bool" name="enabled"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="units">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="w-uni" name="workspace"/>
+                    <xs:element type="w-uni" name="text"/>
+                    <xs:element type="w-uni" name="stroke"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="bool" name="enablePlugins"/>
+              <xs:element type="bool" name="confirmSavings"/>
+              <xs:element type="bool" name="showTooltips"/>
+              <xs:element type="fontsiz" name="fontSizeUI"/>
+              <xs:element type="xs:string" name="cursor"/>
+              <xs:element name="documentsTabs">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="bool">
+                      <xs:attribute type="xs:integer" name="maxtabs"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="bool" name="shiftSwitch"/>
+              <xs:element type="bool" name="showHiddenPanel"/>
+              <xs:element type="exten" name="defaultExtension"/>
+              <xs:element name="enableSounds">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="bool">
+                      <xs:attribute type="sou" name="value"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:float" name="appVersion"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="performance">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="bool" name="usingGPU"/>
+              <xs:element type="bool" name="windowed"/>
+              <xs:element type="brigh" name="brightness"/>
+              <xs:element type="bool" name="resizable"/>
+              <xs:element type="bool" name="animatedZoom"/>
+              <xs:element name="enableHistory">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="bool">
+                      <xs:attribute type="xs:byte" name="maxhistory"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="swapDisc"/>
+              <xs:element name="maxRAM">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:integer">
+                      <xs:attribute type="b-uni" name="b-unit"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="plugins">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="bool" name="loadPluginsPanel"/>
+              <xs:element name="listPlugins">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="plugin" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="location"/>
+                          <xs:element type="lang" name="lang"/>
+                          <xs:element type="bool" name="accessInternet"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="name" use="required"/>
+                        <xs:attribute type="bool" name="enabled" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tools">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="rule">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="bool" name="catch"/>
+                    <xs:element type="lntype" name="lineType"/>
+                    <xs:element name="color">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="coltype" name="type"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="bool" name="enabled"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="grid">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="bool" name="catch"/>
+                    <xs:element type="lntype" name="lineType"/>
+                    <xs:element name="color">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="coltype" name="type"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="gridSize">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:integer">
+                            <xs:attribute type="w-uni" name="w-unit"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="bool" name="gridZoom"/>
+                  </xs:sequence>
+                  <xs:attribute type="bool" name="enabled"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="shortcutList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="command" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="shortcut"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:integer" name="id" use="required"/>
+                  <xs:attribute type="xs:string" name="name" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="bool">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="false|true"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="onoff">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="coltype">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="hex"/>
+      <xs:enumeration value="rgb"/>
+      <xs:enumeration value="text"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dev">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pc"/>
+      <xs:enumeration value="mac"/>
+      <xs:enumeration value="tab"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="t-uni">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="seconds"/>
+      <xs:enumeration value="minutes"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="b-uni">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="B"/>
+      <xs:enumeration value="kB"/>
+      <xs:enumeration value="MB"/>
+      <xs:enumeration value="GB"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lntype">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="solid"/>
+      <xs:enumeration value="dotted"/>
+      <xs:enumeration value="dashed"/>
+      <xs:enumeration value="hidden"/>
+      <xs:enumeration value="double"/>
+      <xs:enumeration value="inset"/>
+      <xs:enumeration value="outset"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="w-uni">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="px"/>
+      <xs:enumeration value="mm"/>
+      <xs:enumeration value="cm"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lang">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z][a-z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="exten">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="fontsiz">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="big"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="brigh">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="10"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="sou">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
